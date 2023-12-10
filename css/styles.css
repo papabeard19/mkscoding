@@ -10979,7 +10979,7 @@ html {
   font-size: 1.25rem;
 }
 .masthead .masthead-avatar {
-  width: 25rem;
+  width: 20rem;
 }
 
 @media (min-width: 992px) {
@@ -11044,17 +11044,19 @@ html {
 .copyright {
   background-color: #8A2BE2;
 }
-/* tambahan papa */
-.teks-dinamis {
-  display: inline-block;
-  overflow: hidden;
-  border: 0px solid #ccc; /* Hanya untuk kejelasan */
-  width: fit-content; /* Untuk mengikuti lebar teks yang berubah */
+
+/* Style untuk mengetik */
+.teks-mengetik {
+  border-right: 1px solid #9932CC; /* Garis imitasi kursor */
+  white-space: nowrap; /* Agar teks tidak pindah ke baris baru */
+  overflow: hidden; /* Agar teks tidak terlihat jika lebih panjang */
+  font-family: monospace; /* Untuk tampilan mirip teks diketik */
+  animation: mengetik 0s steps(100, end) infinite; /* Kecepatan animasi dan langkah-langkah pengetikan */
 }
 
-#ubah-ubah {
-  display: inline-block;
-  animation: ubahTulisan 5s infinite;
+/* Animasi pengetikan */
+@keyframes mengetik {
+  from { width: 0; } /* Teks dimulai dari lebar nol */
 }
 
 

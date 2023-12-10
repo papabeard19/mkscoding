@@ -53,16 +53,40 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-// Hanya untuk memberi efek delay saat halaman dimuat pertama kali
-window.onload = function () {
-    const teks = document.getElementById('ubah-ubah');
-    const kata = ['Assalamu Alaikum', 'Selamat Datang', 'Ahlan Wa Sahlan', '아살라무라이쿰', ' السلام عليكم'];
-    let index = 0;
+// Daftar teks yang akan berubah-ubah
+const daftarTeks = [
+    'Assalamu alaikum',
+    'Selamat Datang',
+    'Welcome Friends',
+    '아살라무라이쿰'
+  ];
   
-    setInterval(function () {
-      teks.textContent = kata[index];
-      index = (index + 1) % kata.length;
-    }, 3000); // Ubah angka ini untuk mengatur kecepatan perubahan teks (dalam milidetik)
-  };
+  let indexTeks = 0;
+  let indexHuruf = 0;
+  
+  function mengetik() {
+    if (indexHuruf < daftarTeks[indexTeks].length) {
+      document.getElementById("teks-mengetik").innerHTML += daftarTeks[indexTeks].charAt(indexHuruf);
+      indexHuruf++;
+      setTimeout(mengetik, 100); // Ubah angka ini untuk mengatur kecepatan pengetikan (dalam milidetik)
+    } else {
+      setTimeout(hapusTeks, 1000); // Waktu delay sebelum menghapus teks
+    }
+  }
+  
+  function hapusTeks() {
+    if (indexHuruf >= 0) {
+      const teks = daftarTeks[indexTeks].substring(0, indexHuruf);
+      document.getElementById("teks-mengetik").innerHTML = teks;
+      indexHuruf--;
+      setTimeout(hapusTeks, 100); // Ubah angka ini untuk mengatur kecepatan penghapusan teks (dalam milidetik)
+    } else {
+      indexTeks = (indexTeks + 1) % daftarTeks.length;
+      setTimeout(mengetik, 500); // Waktu delay sebelum mengetik teks baru
+    }
+  }
+  
+  // Panggil fungsi mengetik saat halaman dimuat
+  window.onload = mengetik;
   
   
