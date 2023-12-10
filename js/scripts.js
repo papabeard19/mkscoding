@@ -52,3 +52,17 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+// Hanya untuk memberi efek delay saat halaman dimuat pertama kali
+window.onload = function () {
+    const teks = document.getElementById('ubah-ubah');
+    const kata = ['Assalamu Alaikum', 'Selamat Datang', 'Ahlan Wa Sahlan', '아살라무라이쿰', ' السلام عليكم'];
+    let index = 0;
+  
+    setInterval(function () {
+      teks.textContent = kata[index];
+      index = (index + 1) % kata.length;
+    }, 3000); // Ubah angka ini untuk mengatur kecepatan perubahan teks (dalam milidetik)
+  };
+  
+  

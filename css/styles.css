@@ -11042,5 +11042,19 @@ html {
 }
 
 .copyright {
-  background-color: #1a252f;
+  background-color: #8A2BE2;
 }
+/* tambahan papa */
+.teks-dinamis {
+  display: inline-block;
+  overflow: hidden;
+  border: 0px solid #ccc; /* Hanya untuk kejelasan */
+  width: fit-content; /* Untuk mengikuti lebar teks yang berubah */
+}
+
+#ubah-ubah {
+  display: inline-block;
+  animation: ubahTulisan 5s infinite;
+}
+
+
